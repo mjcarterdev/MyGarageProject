@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "apps/garage-admin/**"
+      - "packages/**"
       - ".github/workflows/azure-static-web-apps-agreeable-moss-0c522ba03.yml"
   pull_request:
     types: [opened, synchronize, reopened, closed]
@@ -13,6 +14,7 @@ on:
       - main
     paths:
       - "apps/garage-admin/**"
+      - "packages/**"
       - ".github/workflows/azure-static-web-apps-agreeable-moss-0c522ba03.yml"
 
 jobs:
@@ -38,7 +40,6 @@ jobs:
           output_location: "/apps/garage-admin/build" # Built app content directory - optional
           app_build_command: "yarn workspace @my-garage/garage-admin run build"
           ###### End of Repository/Build Configurations ######
-        
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
