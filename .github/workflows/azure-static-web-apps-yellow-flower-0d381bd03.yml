@@ -4,10 +4,16 @@ on:
   push:
     branches:
       - main
+        - "apps/garage-timebooking/**"
+        - "packages/**"
+        - ".github/workflows/azure-static-web-apps-yellow-flower-0d381bd03.yml"
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
+      - "apps/garage-timebooking/**"
+      - "packages/**"
+      - ".github/workflows/azure-static-web-apps-yellow-flower-0d381bd03.yml"
 
 jobs:
   build_and_deploy_job:
@@ -30,6 +36,7 @@ jobs:
           app_location: "/" # App source code path
           api_location: "" # Api source code path - optional
           output_location: "/apps/garage-timebooking/build" # Built app content directory - optional
+          app_build_command: "yarn workspace @my-garage/garage-admin run build"
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
