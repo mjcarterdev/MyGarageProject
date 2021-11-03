@@ -4,10 +4,14 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "apps/garage-admin/**"
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
+    paths:
+      - "apps/garage-admin/**"
 
 jobs:
   build_and_deploy_job:
